@@ -15,6 +15,8 @@ public class Resources {
     public TextureRegion ground;
     public TextureRegion wall;
 
+    public static final int TILE_SIZE = 16;
+
     public Resources() {
         gameSprites = new TextureAtlas(Gdx.files.internal("packed/game.atlas"));
         ground = gameSprites.findRegion("ground");

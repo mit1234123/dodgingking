@@ -10,16 +10,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.unvilgames.dodgingking.screens.GameScreen;
 
 public class DodgingKing extends Game {
-	public Resources res;
-	
-	@Override
-	public void create () {
-		res = new Resources();
-		setScreen(new GameScreen(this));
-	}
+    public Resources res;
 
-	@Override
-	public void dispose () {
-		res.dispose();
-	}
+    @Override
+    public void create() {
+        res = new Resources();
+        setScreen(new GameScreen(this));
+    }
+
+    @Override
+    public void dispose() {
+        res.dispose();
+    }
 }
