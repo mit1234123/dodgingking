@@ -29,8 +29,7 @@ public class SizeEvaluator {
     // x (0 -> 3), 0 at the left, maxTileBaseX at the right
     // y (0 -> 3), 0 at the bottom, maxTileBaseY at the top
 
-    public float getBaseScreenX(int baseX) // 0 .. 3
-    {
+    public float getBaseScreenX(int baseX) { // 0 .. 3
         return measuredStage.getWidth() / 2 - (resources.TILE_SIZE + BASE_MARGIN) * (maxTileBaseX + 1 - baseX);
         // TILE SIZE = 16 px;
         // baseX = 0

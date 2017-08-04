@@ -12,6 +12,7 @@ import de.unvilgames.dodgingking.DodgingKing;
 import de.unvilgames.dodgingking.Resources;
 import de.unvilgames.dodgingking.graph.Background;
 import de.unvilgames.dodgingking.graph.SizeEvaluator;
+import de.unvilgames.dodgingking.graph.effects.WarningEffect;
 import de.unvilgames.dodgingking.logic.GameLogic;
 import de.unvilgames.dodgingking.logic.objects.Player;
 
@@ -53,10 +54,12 @@ public class GameScreen extends DefaultScreen implements InputProcessor {
         RefreshPlayer();
 
         Gdx.input.setInputProcessor(this);
+        WarningEffect.Create(0, 0, logic.getEffectEngine(), sizeEvaluator, game.res);
     }
 
     public void update(float delta) {
         gameStage.act(delta);
+        logic.update(delta);
     }
 
     public void drawBases() {
@@ -82,6 +85,7 @@ public class GameScreen extends DefaultScreen implements InputProcessor {
 
         bg.draw(gameStage, game.res);
         drawBases();
+        logic.getEffectEngine().draw(batch);
 
         batch.begin();
         player.draw(batch);
