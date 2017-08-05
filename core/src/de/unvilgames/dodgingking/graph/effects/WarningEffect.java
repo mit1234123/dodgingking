@@ -15,12 +15,11 @@ public class WarningEffect extends Effect {
     private static final float WARNING_TIME = 2.0f;
     private int fieldX;
     private int fieldY;
-    private SizeEvaluator sizeEvaluator;
     private Resources resources;
 
-    public static WarningEffect Create(int fx, int fy, EffectEngine engine, SizeEvaluator sz, Resources res) {
+    public static WarningEffect Create(int fx, int fy, EffectEngine engine, Resources res) {
         WarningEffect effect = warningPool.obtain();
-        effect.init(fx, fy, engine, sz, res);
+        effect.init(fx, fy, engine, res);
         return  effect;
     }
 
@@ -28,16 +27,15 @@ public class WarningEffect extends Effect {
 
     }
 
-    public void init(int fx, int fy, EffectEngine parent, SizeEvaluator sz, Resources res) {
+    public void init(int fx, int fy, EffectEngine parent, Resources res) {
         fieldX = fx;
         fieldY = fy;
-        sizeEvaluator = sz;
         resources = res;
         super.init(parent);
     }
 
     @Override
-    public void draw(SpriteBatch batch) {
+    public void draw(SpriteBatch batch, SizeEvaluator sizeEvaluator) {
         batch.begin();
         batch.draw(resources.warning, sizeEvaluator.getBaseScreenX(fieldX), sizeEvaluator.getBaseScreenY(fieldY));
         batch.end();

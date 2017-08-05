@@ -3,6 +3,8 @@ package de.unvilgames.dodgingking.graph.effects;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Pool;
 
+import de.unvilgames.dodgingking.graph.SizeEvaluator;
+
 /**
  * Created by timjk on 04.08.2017.
  */
@@ -32,7 +34,7 @@ public abstract class Effect implements Pool.Poolable {
         timeAlive += delta;
     }
 
-    public abstract void draw(SpriteBatch batch);
+    public abstract void draw(SpriteBatch batch, SizeEvaluator sizeEvaluator);
 
     public boolean isAlive() {
         return isAlive;

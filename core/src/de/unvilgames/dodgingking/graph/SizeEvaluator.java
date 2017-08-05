@@ -1,5 +1,6 @@
 package de.unvilgames.dodgingking.graph;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import de.unvilgames.dodgingking.Resources;
@@ -37,6 +38,14 @@ public class SizeEvaluator {
 
     public float getBaseScreenY(int baseY) {
         return measuredStage.getHeight() / 2 - ((resources.TILE_SIZE + BASE_MARGIN) * 2 / 3) * ((maxTileBaseY + 1) / 2 - baseY);
+    }
+
+    public float getEnemyX(Sprite enemy) {
+        return measuredStage.getWidth() * 3 / 4 - enemy.getWidth() / 2;
+    }
+
+    public float getEnemyY(Sprite enemy) {
+        return measuredStage.getHeight() / 2 - enemy.getHeight() / 2;
     }
 
 }

@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.unvilgames.dodgingking.graph.SizeEvaluator;
+
 /**
  * Created by timjk on 04.08.2017.
  */
@@ -33,9 +35,9 @@ public class EffectEngine {
         }
     }
 
-    public void draw(SpriteBatch batch) {
+    public void draw(SpriteBatch batch, SizeEvaluator sizeEvaluator) {
         for(int i = 0; i < effects.size(); i++) {
-            effects.get(i).draw(batch);
+            effects.get(i).draw(batch, sizeEvaluator);
         }
     }
 
