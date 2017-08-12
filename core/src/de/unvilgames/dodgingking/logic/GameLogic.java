@@ -73,9 +73,6 @@ public class GameLogic implements Enemy.EnemyAttackListener, WarningEffect.Warni
     public void OnEffectOver(WarningEffect effect) {
         if (effect.getFieldX() == player.getFieldX() && effect.getFieldY() == player.getFieldY()) {
             player.takeDamage(1);
-            if (player.getLives() == 0) {
-                Gdx.app.exit();
-            }
         }
     }
 }

@@ -1,6 +1,7 @@
 package de.unvilgames.dodgingking;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -12,6 +13,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Resources {
 
     TextureAtlas gameSprites;
+
+    public BitmapFont gameFont;
 
     public TextureRegion ground;
     public TextureRegion wall;
@@ -26,6 +29,9 @@ public class Resources {
 
     public Resources() {
         gameSprites = new TextureAtlas(Gdx.files.internal("packed/game.atlas"));
+
+        gameFont = new BitmapFont(Gdx.files.internal("gamefont.fnt"), Gdx.files.internal("gamefont.png"), false);
+
         ground = gameSprites.findRegion("ground");
         wall = gameSprites.findRegion("wall");
 
