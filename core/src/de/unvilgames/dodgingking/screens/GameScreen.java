@@ -16,6 +16,7 @@ import de.unvilgames.dodgingking.graph.Background;
 import de.unvilgames.dodgingking.graph.SizeEvaluator;
 import de.unvilgames.dodgingking.graph.effects.WarningEffect;
 import de.unvilgames.dodgingking.logic.GameLogic;
+import de.unvilgames.dodgingking.logic.objects.Bonus;
 import de.unvilgames.dodgingking.logic.objects.Enemy;
 import de.unvilgames.dodgingking.logic.objects.Player;
 
@@ -92,7 +93,9 @@ public class GameScreen extends DefaultScreen implements InputProcessor {
 
     private void drawUI() {
         batch.begin();
-        drawShadowed("LIVES:" + player.getLives(), 5, gameStage.getHeight() - 5, gameStage.getWidth(), Align.left, Color.WHITE);
+        drawShadowed("LIVES:" + player.getLives(), 5, gameStage.getHeight() - 5, gameStage.getWidth() - 5, Align.left, Color.WHITE);
+
+        drawShadowed("ENEMY:" + logic.getEnemy().getLives(), 0, gameStage.getHeight() - 5, gameStage.getWidth() - 5, Align.right, Color.WHITE);
 
         if (player.getLives() <= 0) {
             drawShadowed("DEFEAT!", 0, gameStage.getHeight() / 2, gameStage.getWidth(), Align.center, Color.RED);
@@ -113,6 +116,9 @@ public class GameScreen extends DefaultScreen implements InputProcessor {
         logic.getEffectEngine().draw(batch, sizeEvaluator);
 
         batch.begin();
+        for (Bonus bonus : logic.getBonuses()) {
+            bonus.draw(batch, sizeEvaluator);
+        }
         player.draw(batch, sizeEvaluator);
         logic.getEnemy().draw(batch, sizeEvaluator);
         batch.end();
